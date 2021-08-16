@@ -153,7 +153,7 @@ FY21 %>%
         table.placement = "H")
 ```
 
-The Corporate Fund comprises about 30% of the total City budget at \$4.03 billion. The proliferation of enterprise and special revenue funds makes the Miscellaneous the second biggest category. 33 different departments get at least a portion of their budget from the Corporate Fund, of which CPD is largest by a significant proportion at \$1.55 billion or 38.56% of the total.
+The Corporate Fund comprises about 30% of the total City budget at \$4.03 billion. The proliferation of enterprise and special revenue funds makes Miscellaneous the second biggest category. 33 different departments get at least a portion of their budget from the Corporate Fund, of which CPD is largest by a significant proportion at \$1.55 billion or 38.56% of the total.
 
 ```{r reduced corporate fund treemap}
 corp_top_ten <- FY21 %>% 
@@ -326,7 +326,7 @@ ts_FY21 %>%
 # we see a lot of police officers assigned with varying titles
 ```
 
-The primary distinction between CPD job titles is between peace officers and non-peace officers as defined by under Illinois statute (720 ILCS 5/2-13). The Office of the Inspector General (OIG) maintains a list of job title codes that signify peace officer designation (https://informationportal.igchicago.org/cpd-sworn-officer-unit-assignments/). I used this list of job title codes as a reference applied to job title codes in the Positions and Salaries dataset to divide CPD employees into either category. However, several police officer assignments and the Deputy Superintendent were not included in the OIG list. Using basic knowledge and inductive reasoning, I applied the peace officer designation to all relevant job title codes and descriptions.
+The primary distinction between CPD job titles is between peace officers and non-peace officers as defined by under Illinois statute (720 ILCS 5/2-13 ^[https://www.ilga.gov/legislation/ilcs/fulltext.asp?DocName=072000050K2-13]). The Office of the Inspector General (OIG) maintains a list of job title codes that signify peace officer designation ^[https://informationportal.igchicago.org/cpd-sworn-officer-unit-assignments/]. I used this list of job title codes as a reference applied to job title codes in the Positions and Salaries dataset to divide CPD employees into either category. However, several police officer assignments and the Deputy Superintendent were not included in the OIG list. Using basic knowledge and inductive reasoning, I applied the peace officer designation to all relevant job title codes and descriptions.
 
 ```{r appropriation by PO status}
 # define peace officer title code:: https://informationportal.igchicago.org/glossary/sworn-officer/
@@ -393,7 +393,7 @@ ts_FY21 %>%
 
 # Total Policing Costs
 
-The price of police is more than the CPD budget line in the City government. Most notably, the Policemen’s Annuity and Benefit Fund (pension) is an actuarial fund completely separate from the Corporate Fund that falls under the authority of the City Department on Finance. State law mandates the level of yearly City contributions to the pension fund, which are set to increase until the fund reaches actuarial solvency. Other meaningful costs is the Civilian Office of Police Accountability, the Police Board, and various Consent Decree appropriations scattered across different departments. Below is a table of all the appropriations either contained within the CPD budget specifically or ancillary to it. This list is almost certainly not exhaustive, but based on what I can surmise for myself, the grand total for policing in Chicago for Fiscal Year 2021 is \$2.53 billion.
+The price of police is more than the CPD budget line in the City government. Most notably, the Policemen’s Annuity and Benefit Fund (pension) is an actuarial fund completely separate from the Corporate Fund that falls under the authority of the City Department on Finance. State law mandates the level of yearly City contributions to the pension fund, which are set to increase until the fund reaches actuarial solvency. Other meaningful costs is the Civilian Office of Police Accountability, the Police Board, and various Consent Decree ^[http://chicagopoliceconsentdecree.org/] appropriations scattered across different departments. Below is a table of all the appropriations either contained within the CPD budget specifically or ancillary to it. This list is almost certainly not exhaustive, but based on what I can surmise for myself, the grand total for policing in Chicago for Fiscal Year 2021 is \$2.53 billion.
 
 ```{r CPD plus ancillary costs}
 # just like the titles list, this is obviously unwieldy and un-interpret-able
@@ -593,7 +593,4 @@ FY21 %>%
 
 The total Chicago Police Department Budget Appropriation (including appropriations outside the Corporate Fund) is \$1.6 billion dollars for Fiscal Year 2021, or 12.56% of the full City budget. It's proportion of the Corporate Fund is \$1.5 billion or 38.56%. Most City employees work for the CPD (~14 thousand) and the overwhelming majority of salary expenses flow towards that department. However, the budget line for CPD does not capture all the direct costs of policing for the City. Pension contributions (\$818 million), the Civilian Office of Police Accountability, the Police Board, and various Consent Decree expenses bring the total up to \$2.5 billion.
 
-Opportunities for future research include a closer look at personnel costs and how compensation is structured through the CPD hierarchy. The City also maintains datasets on crime and COPA cases, which could prove insightful with regard to effectiveness and performance measures. These data along with past City budgets can shed light on what has come before, where we are now, and what the future may hold.
-
-
-
+Opportunities for future research include a closer look at personnel costs and how compensation is structured through the CPD hierarchy. The City also maintains datasets on crime and COPA cases, which could prove insightful with regard to effectiveness and performance measures. These data along with past City budgets can shed light on what has come before, where we are now, and what the future may hold. There is also a vast literature that can enhance my qualitative analysis that I am eager to reengage.
