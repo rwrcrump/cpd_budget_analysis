@@ -29,7 +29,7 @@ opts_chunk$set(tidy.opts=list(width.cutoff=60),
 
 options(scipen = 999)
 
-setwd("C:/Users/uberbot/Desktop/CPD/cpd_new")
+setwd("D:/GitHub/cpd_budget_analysis/cpd_budget_analysis")
 ```
 
 # Introduction
@@ -46,6 +46,8 @@ What may come of these new changes is hard to predict for the beleaguered Depart
 
 
 ```{r load data}
+
+
 budget_ordinances <- read_csv("data/budget_ordinances.csv")
 
 FY21 <- budget_ordinances %>% 
