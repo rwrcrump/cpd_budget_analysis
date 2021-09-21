@@ -5,7 +5,7 @@ library(RSocrata)
 
 rm(list = ls())
 
-setwd("C:/Users/uberbot/Desktop/cpd_new")
+setwd("D:/GitHub/cpd_budget_analysis/cpd_budget_analysis")
 
 # Full Budget Ordinances Appropriations -----------------------------------
 
@@ -22,7 +22,8 @@ API_list_budget <- c("drv3-jzqp", # 2011
                      "6g7p-xnsy", # 2018
                      "h9rt-tsn7", # 2019
                      "fyin-2vyd", # 2020
-                     "6tbx-h7y2") # 2021
+                     "6tbx-h7y2", # 2021
+                     "ncj3-k47t") # 2022, recommended budget: https://data.cityofchicago.org/Administration-Finance/Budget-2022-Budget-Recommendations-Appropriations/ncj3-k47t
 
 # define seed year
 year = 2011
@@ -83,7 +84,8 @@ API_list_salaries <- c("g398-fhbm", # 2011
                        "9d7d-7f2b", # 2018
                        "7zkb-yr4j", # 2019
                        "txys-725h", # 2020
-                       "gcwx-xm5a") # 2021
+                       "gcwx-xm5a", # 2021
+                       "kwap-s85k") #2022 recommended budget: https://data.cityofchicago.org/Administration-Finance/Budget-2022-Budget-Recommendations-Positions-and-S/kwap-s85k
 
 year = 2011
 

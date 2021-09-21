@@ -38,15 +38,15 @@ setwd("D:/GitHub/cpd_budget_analysis/cpd_budget_analysis")
 ```
 
 # Introduction
-\setlength{\parindent}{5ex}
+
 2020 was a year like no other that compelled many Americans to fundamentally reconsider how their cities are policed. In Chicago, this reckoning came to a head during a weekend of protests and looting after a Minneapolis police officer murdered George Floyd on May 25th. Chicago’s mayor, Lori Lightfoot, enacted emergency powers that effectively shut down the central city while Chicago Police Department (CPD) officers fanned out through the city to quell the unrest. The city’s iconic river-spanning bridges were raised, interstate ramps were blockaded, the Chicago Transit Authority temporarily suspended service, and the Governor deployed the Illinois National Guard to deter further violence. The Summer of 2020 saw unfolding reprisals of civil unrest in different parts of the city ^[https://www.chicagotribune.com/news/breaking/ct-cb-george-floyd-fallout-impact-chicago-20201006-lkndggmch5emjiefplywhcaeou-story.html] that persisted into the Fall. As the dust settled in Chicago and elsewhere, people across the country grappled less with the “why” and more with the “how” of police reform. Police department budgets received new levels of scrutiny as many citizens and politicians openly advocated and mobilized for sweeping change.
-\setlength{\parindent}{5ex}
+
 The future of local policing depends largely on how municipal governments choose to allocate resources. Reimagining public safety and charting a new path that hopefully leads cities and the nation away from our troubled past requires a clear-eyed view of where we currently stand. The City of Chicago maintains a large Open Data Portal that contains City Budget Ordinances going back to 2011. This report examines the Fiscal Year 2021 Budget Ordinance with particular focus on the CPD budget and related appropriations. The goal of this report is to be strictly descriptive while providing a base level of knowledge for other researchers and curious citizens. However, it's worth noting that the choice of what to measure and how to present data is inherently subjective.
-\setlength{\parindent}{5ex}
+
 Summer 2021 has been a busy season for Chicago’s City Council, particularly regarding the CPD. In July, the City Council threatened a vote of no confidence in the CPD Superintendent appointed by the Mayor unless he agreed to a public grilling on community violence ^[https://chicago.suntimes.com/city-hall/2021/6/30/22557658/chicago-violence-shootings-fourth-july-weekend-police-plans-brown-council-aldermen-special-meeting]. Weeks later, the same Council passed the Mayor’s proposal for a citizen oversight board that she originally crafted as the President of the Police Board ^[https://blockclubchicago.org/2021/07/21/city-council-approves-first-ever-civilian-led-commission-to-oversee-chicago-police-department/
 ]. The recently negotiated contract between the City and the Fraternal Order of Police (CPD union) will substantially increase the CPD budget while also adopting new accountability measures recommended by the Department of Justice ^[https://news.wttw.com/2021/07/26/police-officers-get-back-pay-face-new-accountability-rules-under-proposed-8-year-deal
 ]. On July 30th, the Civilian Office of Police Account ability began searching for a new Chief Administrator ^[https://www.chicagocopa.org/press/the-city-of-chicago-begins-official-search-and-selection-process-for-the-next-chief-administrator-of-copa/]. Police spending in Chicago is certain to go up over the coming years, and how that money is spent will remain a contentiously argued topic.
-\setlength{\parindent}{5ex}
+
 What may come of these new changes is hard to predict for the beleaguered Department, and for the City. A shared understanding of facts is the first step towards meaningful change, and finding a path forward, at the very least, requires a compass and a map. I used two sources for this initial report, both from the City of Chicago Open Data Portal. The primary resource is the Fiscal Year 2021 Budget Ordinance ^[https://data.cityofchicago.org/Administration-Finance/Budget-2021-Budget-Ordinance-Appropriations/6tbx-h7y2], and the secondary resource is the Fiscal Year 2021 Budget Ordinance – Positions and Salaries ^[https://data.cityofchicago.org/Administration-Finance/Budget-2021-Budget-Ordinance-Positions-and-Salarie/gcwx-xm5a] which is a detailed subset of the full budget ordinance.
 
 
@@ -66,9 +66,9 @@ ts_FY21 <- titles_salaries %>%
 ```
 
 # Chicago City 2021 Budget Overview
-\setlength{\parindent}{5ex}
+
 The City of Chicago, like most local governments in the United States, divides its budget into three broad categories: the general fund, enterprise funds, and special revenue funds. The City of Chicago calls its general fund the Corporate Fund, which contains most of the CPD budget. Enterprise and special revenue funds are highly restricted in discretionary spending choices because they require stability to support essential services. The largest enterprise fund for most US municipalities is the water and/or sewer funds. Special revenue funds, such as fiduciary funds (pensions), are also legally structured to resist changes in spending choices between election cycles. Although municipal general funds permit more flexibility, most of the budget is similarly constrained under contract, such as, for example, the Chicago FOP contract. The motivating goal of constrained budgeting is stability and predictability of public investment. Moreover, the dynamics of political economy compels negotiators to demand credible commitments from politicians who may or may not be in office for the duration of a contract.
-\setlength{\parindent}{5ex}
+
 When engaging with something like the City of Chicago budget, the first noticeable characteristics are its size and complexity. Through close study and data manipulation using R, I’ve attempted to display these characteristics while illustrating my decisions for the sake of interpretation and gathering insight by narrowing focus on particular datapoints. To start, let’s get a picture of the proportions of every named City fund using a treemap chart.
 
 ```{r full budget treemap}
@@ -159,7 +159,7 @@ FY21 %>%
         "simple", 
         table.placement = "H")
 ```
-\setlength{\parindent}{5ex}
+
 The Corporate Fund comprises about 30% of the total City budget at \$4.03 billion. The proliferation of enterprise and special revenue funds makes Miscellaneous the second biggest category. 33 different departments get at least a portion of their budget from the Corporate Fund, of which CPD is largest by a significant proportion at \$1.55 billion or 38.56% of the total.
 
 ```{r reduced corporate fund treemap}
@@ -217,7 +217,7 @@ FY21 %>%
         "simple", 
         table.placement = "H")
 ```
-\setlength{\parindent}{5ex}
+
 Next, let’s take a quick look at Positions and Salary data for the City by department. One important note about the Positions and Salary dataset is the ‘position control’ variable that designates whether a position is hourly or salaried. For our purposes, hourly positions need to be filtered out because it affects how the position counts and appropriations are counted. Salaried positions are counted individually, and appropriations specify that annual salary for each position. Hourly positions are counted in hours per position not number of positions, and appropriations specify how much money is available to payout at the hourly rate for a position. CPD hourly positions (mostly trainees) account for roughly $10 million.
 
 ```{r ts by dept table}
@@ -280,7 +280,7 @@ ts_FY21 %>%
 ```
 
 # CPD Budget Analysis
-\setlength{\parindent}{5ex}
+
 The chart below shows a simplified list of the appropriations for the CPD in the 2021 budget. For the sake of legibility, I filtered out any items below \$2 million divided the amounts by \$1 million. CPD is primarily a payroll expense, however, there are a few line items outside of payroll that represent different forms of compensation. We’ll explore appropriation categories after a quick detour into the CPD Positions and Salaries data.
 
 ```{r CPD appropriations by expense type}
@@ -332,7 +332,7 @@ ts_FY21 %>%
         table.placement = "H")
 # we see a lot of police officers assigned with varying titles
 ```
-\setlength{\parindent}{5ex}
+
 The primary distinction between CPD job titles is between peace officers and non-peace officers as defined by under Illinois statute (720 ILCS 5/2-13 ^[https://www.ilga.gov/legislation/ilcs/fulltext.asp?DocName=072000050K2-13]). The Office of the Inspector General (OIG) maintains a list of job title codes that signify peace officer designation ^[https://informationportal.igchicago.org/cpd-sworn-officer-unit-assignments/]. I used this list of job title codes as a reference applied to job title codes in the Positions and Salaries dataset to divide CPD employees into either category. However, several police officer assignments and the Deputy Superintendent were not included in the OIG list. Using basic knowledge and inductive reasoning, I applied the peace officer designation to all relevant job title codes and descriptions.
 
 ```{r appropriation by PO status}
@@ -399,7 +399,7 @@ ts_FY21 %>%
 ```
 
 # Total Policing Costs
-\setlength{\parindent}{5ex}
+
 The price of police is more than the CPD budget line in the City government. Most notably, the Policemen’s Annuity and Benefit Fund (pension) is an actuarial fund completely separate from the Corporate Fund that falls under the authority of the City Department on Finance. State law mandates the level of yearly City contributions to the pension fund, which are set to increase until the fund reaches actuarial solvency. Other meaningful costs is the Civilian Office of Police Accountability, the Police Board, and various Consent Decree ^[http://chicagopoliceconsentdecree.org/] appropriations scattered across different departments. Below is a table of all the appropriations either contained within the CPD budget specifically or ancillary to it. This list is almost certainly not exhaustive, but based on what I can surmise for myself, the grand total for policing in Chicago for Fiscal Year 2021 is \$2.53 billion.
 
 ```{r CPD plus ancillary costs}
@@ -597,7 +597,7 @@ FY21 %>%
 ```
 
 # Conclusion
-\setlength{\parindent}{5ex}
+
 The total Chicago Police Department Budget Appropriation (including appropriations outside the Corporate Fund) is \$1.6 billion dollars for Fiscal Year 2021, or 12.56% of the full City budget. It's proportion of the Corporate Fund is \$1.5 billion or 38.56%. Most City employees work for the CPD (~14 thousand) and the overwhelming majority of salary expenses flow towards that department. However, the budget line for CPD does not capture all the direct costs of policing for the City. Pension contributions (\$818 million), the Civilian Office of Police Accountability, the Police Board, and various Consent Decree expenses bring the total up to \$2.5 billion.
-\setlength{\parindent}{5ex}
+
 Opportunities for future research include a closer look at personnel costs and how compensation is structured through the CPD hierarchy. The City also maintains datasets on crime and COPA cases, which could prove insightful with regard to effectiveness and performance measures. These data along with past City budgets can shed light on what has come before, where we are now, and what the future may hold. There is also a vast literature that can enhance my qualitative analysis that I am eager to reengage.

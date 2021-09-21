@@ -94,8 +94,6 @@
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
-\setlength{\parindent}{5ex}
-
 2020 was a year like no other that compelled many Americans to
 fundamentally reconsider how their cities are policed. In Chicago, this
 reckoning came to a head during a weekend of protests and looting after
@@ -112,7 +110,8 @@ that persisted into the Fall. As the dust settled in Chicago and
 elsewhere, people across the country grappled less with the ``why'' and
 more with the ``how'' of police reform. Police department budgets
 received new levels of scrutiny as many citizens and politicians openly
-advocated and mobilized for sweeping change. \setlength{\parindent}{5ex}
+advocated and mobilized for sweeping change.
+
 The future of local policing depends largely on how municipal
 governments choose to allocate resources. Reimagining public safety and
 charting a new path that hopefully leads cities and the nation away from
@@ -124,11 +123,12 @@ budget and related appropriations. The goal of this report is to be
 strictly descriptive while providing a base level of knowledge for other
 researchers and curious citizens. However, it's worth noting that the
 choice of what to measure and how to present data is inherently
-subjective. \setlength{\parindent}{5ex} Summer 2021 has been a busy
-season for Chicago's City Council, particularly regarding the CPD. In
-July, the City Council threatened a vote of no confidence in the CPD
-Superintendent appointed by the Mayor unless he agreed to a public
-grilling on community violence \footnote{\url{https://chicago.suntimes.com/city-hall/2021/6/30/22557658/chicago-violence-shootings-fourth-july-weekend-police-plans-brown-council-aldermen-special-meeting}}.
+subjective.
+
+Summer 2021 has been a busy season for Chicago's City Council,
+particularly regarding the CPD. In July, the City Council threatened a
+vote of no confidence in the CPD Superintendent appointed by the Mayor
+unless he agreed to a public grilling on community violence \footnote{\url{https://chicago.suntimes.com/city-hall/2021/6/30/22557658/chicago-violence-shootings-fourth-july-weekend-police-plans-brown-council-aldermen-special-meeting}}.
 Weeks later, the same Council passed the Mayor's proposal for a citizen
 oversight board that she originally crafted as the President of the
 Police Board \footnote{\url{https://blockclubchicago.org/2021/07/21/city-council-approves-first-ever-civilian-led-commission-to-oversee-chicago-police-department/}}.
@@ -140,13 +140,14 @@ On July 30th, the Civilian Office of Police Account ability began
 searching for a new Chief Administrator \footnote{\url{https://www.chicagocopa.org/press/the-city-of-chicago-begins-official-search-and-selection-process-for-the-next-chief-administrator-of-copa/}}.
 Police spending in Chicago is certain to go up over the coming years,
 and how that money is spent will remain a contentiously argued topic.
-\setlength{\parindent}{5ex} What may come of these new changes is hard
-to predict for the beleaguered Department, and for the City. A shared
-understanding of facts is the first step towards meaningful change, and
-finding a path forward, at the very least, requires a compass and a map.
-I used two sources for this initial report, both from the City of
-Chicago Open Data Portal. The primary resource is the Fiscal Year 2021
-Budget Ordinance \footnote{\url{https://data.cityofchicago.org/Administration-Finance/Budget-2021-Budget-Ordinance-Appropriations/6tbx-h7y2}},
+
+What may come of these new changes is hard to predict for the
+beleaguered Department, and for the City. A shared understanding of
+facts is the first step towards meaningful change, and finding a path
+forward, at the very least, requires a compass and a map. I used two
+sources for this initial report, both from the City of Chicago Open Data
+Portal. The primary resource is the Fiscal Year 2021 Budget Ordinance
+\footnote{\url{https://data.cityofchicago.org/Administration-Finance/Budget-2021-Budget-Ordinance-Appropriations/6tbx-h7y2}},
 and the secondary resource is the Fiscal Year 2021 Budget Ordinance --
 Positions and Salaries \footnote{\url{https://data.cityofchicago.org/Administration-Finance/Budget-2021-Budget-Ordinance-Positions-and-Salarie/gcwx-xm5a}}
 which is a detailed subset of the full budget ordinance.
@@ -154,8 +155,6 @@ which is a detailed subset of the full budget ordinance.
 \hypertarget{chicago-city-2021-budget-overview}{%
 \section{Chicago City 2021 Budget
 Overview}\label{chicago-city-2021-budget-overview}}
-
-\setlength{\parindent}{5ex}
 
 The City of Chicago, like most local governments in the United States,
 divides its budget into three broad categories: the general fund,
@@ -173,13 +172,15 @@ FOP contract. The motivating goal of constrained budgeting is stability
 and predictability of public investment. Moreover, the dynamics of
 political economy compels negotiators to demand credible commitments
 from politicians who may or may not be in office for the duration of a
-contract. \setlength{\parindent}{5ex} When engaging with something like
-the City of Chicago budget, the first noticeable characteristics are its
-size and complexity. Through close study and data manipulation using R,
-I've attempted to display these characteristics while illustrating my
-decisions for the sake of interpretation and gathering insight by
-narrowing focus on particular datapoints. To start, let's get a picture
-of the proportions of every named City fund using a treemap chart.
+contract.
+
+When engaging with something like the City of Chicago budget, the first
+noticeable characteristics are its size and complexity. Through close
+study and data manipulation using R, I've attempted to display these
+characteristics while illustrating my decisions for the sake of
+interpretation and gathering insight by narrowing focus on particular
+datapoints. To start, let's get a picture of the proportions of every
+named City fund using a treemap chart.
 
 \begin{center}\includegraphics{cpd_budget_analysis_files/figure-latex/full budget treemap-1} \end{center}
 
@@ -216,15 +217,15 @@ FIREMEN'S ANNUITY AND BENEFIT & 382,779,000 & 2.83\tabularnewline
 SEWER FUND & 375,696,000 & 2.78\tabularnewline
 MIDWAY AIRPORT FUND & 336,559,000 & 2.49\tabularnewline
 HEAD START AND EARLY HEAD START & 313,400,000 & 2.32\tabularnewline
-\setlength{\parindent}{5ex} & &\tabularnewline
-The Corporate Fund comprises about & 30\% of the total City budg & et at
+\bottomrule
+\end{longtable}
+
+The Corporate Fund comprises about 30\% of the total City budget at
 \$4.03 billion. The proliferation of enterprise and special revenue
 funds makes Miscellaneous the second biggest category. 33 different
 departments get at least a portion of their budget from the Corporate
 Fund, of which CPD is largest by a significant proportion at \$1.55
-billion or 38.56\% of the total.\tabularnewline
-\bottomrule
-\end{longtable}
+billion or 38.56\% of the total.
 
 \begin{center}\includegraphics{cpd_budget_analysis_files/figure-latex/reduced corporate fund treemap-1} \end{center}
 
@@ -249,20 +250,20 @@ DOF & 64,939,265 & 1.61\tabularnewline
 CDPH & 57,344,506 & 1.42\tabularnewline
 CDOT & 45,172,718 & 1.12\tabularnewline
 PSA & 30,626,710 & 0.76\tabularnewline
-\textbackslash setlength\{\parinde & nt\}\{5ex\} &\tabularnewline
-Next, let's take a & quick look at Positions and & Salary data for the
-City by department. One important note about the Positions and Salary
-dataset is the `position control' variable that designates whether a
-position is hourly or salaried. For our purposes, hourly positions need
-to be filtered out because it affects how the position counts and
+\bottomrule
+\end{longtable}
+
+Next, let's take a quick look at Positions and Salary data for the City
+by department. One important note about the Positions and Salary dataset
+is the `position control' variable that designates whether a position is
+hourly or salaried. For our purposes, hourly positions need to be
+filtered out because it affects how the position counts and
 appropriations are counted. Salaried positions are counted individually,
 and appropriations specify that annual salary for each position. Hourly
 positions are counted in hours per position not number of positions, and
 appropriations specify how much money is available to payout at the
 hourly rate for a position. CPD hourly positions (mostly trainees)
-account for roughly \$10 million.\tabularnewline
-\bottomrule
-\end{longtable}
+account for roughly \$10 million.
 
 \begin{longtable}[]{@{}lccrr@{}}
 \caption{Positions by Department}\tabularnewline
@@ -298,8 +299,6 @@ let's use a horizontal bar chart.
 
 \hypertarget{cpd-budget-analysis}{%
 \section{CPD Budget Analysis}\label{cpd-budget-analysis}}
-
-\setlength{\parindent}{5ex}
 
 The chart below shows a simplified list of the appropriations for the
 CPD in the 2021 budget. For the sake of legibility, I filtered out any
@@ -454,10 +453,12 @@ Executive Administrative Assistant II & 58,968 & 1\tabularnewline
 Assistant Supervisor of Police Records & 53,736 & 1\tabularnewline
 Manager of Data Entry Operators & 53,736 & 1\tabularnewline
 Photographic Specialist & 53,736 & 1\tabularnewline
-\setlength{\parindent}{5ex} & &\tabularnewline
-The primary distinction between CPD job titles is between peace offic &
-ers and non-peace officers & as defined by under Illinois statute (720
-ILCS 5/2-13 \footnote{\url{https://www.ilga.gov/legislation/ilcs/fulltext.asp?DocName=072000050K2-13}}).
+\bottomrule
+\end{longtable}
+
+The primary distinction between CPD job titles is between peace officers
+and non-peace officers as defined by under Illinois statute (720 ILCS
+5/2-13 \footnote{\url{https://www.ilga.gov/legislation/ilcs/fulltext.asp?DocName=072000050K2-13}}).
 The Office of the Inspector General (OIG) maintains a list of job title
 codes that signify peace officer designation \footnote{\url{https://informationportal.igchicago.org/cpd-sworn-officer-unit-assignments/}}.
 I used this list of job title codes as a reference applied to job title
@@ -465,10 +466,7 @@ codes in the Positions and Salaries dataset to divide CPD employees into
 either category. However, several police officer assignments and the
 Deputy Superintendent were not included in the OIG list. Using basic
 knowledge and inductive reasoning, I applied the peace officer
-designation to all relevant job title codes and
-descriptions.\tabularnewline
-\bottomrule
-\end{longtable}
+designation to all relevant job title codes and descriptions.
 
 \begin{center}\includegraphics{cpd_budget_analysis_files/figure-latex/appropriation by PO status-1} \end{center}
 
@@ -482,8 +480,6 @@ affects compensation costs.
 
 \hypertarget{total-policing-costs}{%
 \section{Total Policing Costs}\label{total-policing-costs}}
-
-\setlength{\parindent}{5ex}
 
 The price of police is more than the CPD budget line in the City
 government. Most notably, the Policemen's Annuity and Benefit Fund
@@ -585,8 +581,6 @@ non-salary compensation, physical assets, and professional services.
 \hypertarget{conclusion}{%
 \section{Conclusion}\label{conclusion}}
 
-\setlength{\parindent}{5ex}
-
 The total Chicago Police Department Budget Appropriation (including
 appropriations outside the Corporate Fund) is \$1.6 billion dollars for
 Fiscal Year 2021, or 12.56\% of the full City budget. It's proportion of
@@ -597,13 +591,14 @@ line for CPD does not capture all the direct costs of policing for the
 City. Pension contributions (\$818 million), the Civilian Office of
 Police Accountability, the Police Board, and various Consent Decree
 expenses bring the total up to \$2.5 billion.
-\setlength{\parindent}{5ex} Opportunities for future research include a
-closer look at personnel costs and how compensation is structured
-through the CPD hierarchy. The City also maintains datasets on crime and
-COPA cases, which could prove insightful with regard to effectiveness
-and performance measures. These data along with past City budgets can
-shed light on what has come before, where we are now, and what the
-future may hold. There is also a vast literature that can enhance my
-qualitative analysis that I am eager to reengage.
+
+Opportunities for future research include a closer look at personnel
+costs and how compensation is structured through the CPD hierarchy. The
+City also maintains datasets on crime and COPA cases, which could prove
+insightful with regard to effectiveness and performance measures. These
+data along with past City budgets can shed light on what has come
+before, where we are now, and what the future may hold. There is also a
+vast literature that can enhance my qualitative analysis that I am eager
+to reengage.
 
 \end{document}
