@@ -33,6 +33,8 @@ options(scipen = 999)
 setwd("D:/GitHub/cpd_budget_analysis/cpd_budget_analysis")
 ```
 
+[GitHub Repository](https://github.com/rwrcrump/cpd_budget_analysis/tree/main)
+
 # Introduction
 
 2020 was a year like no other that compelled many Americans to fundamentally reconsider how their cities are policed. In Chicago, this reckoning came to a head during a weekend of protests and looting after a Minneapolis police officer murdered George Floyd on May 25th. Chicago’s mayor, Lori Lightfoot, enacted emergency powers that effectively shut down the central city while Chicago Police Department (CPD) officers fanned out through the city to quell the unrest. The city’s iconic river-spanning bridges were raised, interstate ramps were blockaded, the Chicago Transit Authority temporarily suspended service, and the Governor deployed the Illinois National Guard to deter further violence. The Summer of 2020 saw unfolding reprisals of civil unrest in different parts of the city ^[https://www.chicagotribune.com/news/breaking/ct-cb-george-floyd-fallout-impact-chicago-20201006-lkndggmch5emjiefplywhcaeou-story.html] that persisted into the Fall. As the dust settled in Chicago and elsewhere, people across the country grappled less with the “why” and more with the “how” of police reform. Police department budgets received new levels of scrutiny as many citizens and politicians openly advocated and mobilized for sweeping change.
