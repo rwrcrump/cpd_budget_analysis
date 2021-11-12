@@ -1,12 +1,8 @@
 ---
 title: "The Price of Police"
 author: "Robert Crump"
-output:
-  pdf_document:
-    keep_tex: true
+output: html_document
 date: "9/5/2021"
-header-includes:
-  - \usepackage{indentfirst}
 ---
 
 ```{r setup, include=FALSE, message=FALSE}
@@ -51,8 +47,6 @@ What may come of these new changes is hard to predict for the beleaguered Depart
 
 
 ```{r load data}
-
-
 budget_ordinances <- read_csv("data/budget_ordinances.csv")
 
 FY21 <- budget_ordinances %>% 
@@ -69,7 +63,7 @@ ts_FY21 <- titles_salaries %>%
 
 The City of Chicago, like most local governments in the United States, divides its budget into three broad categories: the general fund, enterprise funds, and special revenue funds. The City of Chicago calls its general fund the Corporate Fund, which contains most of the CPD budget. Enterprise and special revenue funds are highly restricted in discretionary spending choices because they require stability to support essential services. The largest enterprise fund for most US municipalities is the water and/or sewer funds. Special revenue funds, such as fiduciary funds (pensions), are also legally structured to resist changes in spending choices between election cycles. Although municipal general funds permit more flexibility, most of the budget is similarly constrained under contract, such as, for example, the Chicago FOP contract. The motivating goal of constrained budgeting is stability and predictability of public investment. Moreover, the dynamics of political economy compels negotiators to demand credible commitments from politicians who may or may not be in office for the duration of a contract.
 
-When engaging with something like the City of Chicago budget, the first noticeable characteristics are its size and complexity. Through close study and data manipulation using R, I’ve attempted to display these characteristics while illustrating my decisions for the sake of interpretation and gathering insight by narrowing focus on particular datapoints. To start, let’s get a picture of the proportions of every named City fund using a treemap chart.
+When engaging with something like the City of Chicago budget, the first noticeable characteristics are its size and complexity. Through close study and data manipulation using R, I’ve attempted to display these characteristics while illustrating my decisions for the sake of interpretation and gathering insight by narrowing focus on particular datapoints. I think it's important to show the complexity of the data, then demonstrate the steps taken to simplify it for presentation. This analysis moves generally from broad and complex to narrow and focused. To start, let’s get a picture of the proportions of every named City fund using a treemap chart.
 
 ```{r full budget treemap}
 FY21 %>% 
@@ -218,7 +212,7 @@ FY21 %>%
         table.placement = "H")
 ```
 
-Next, let’s take a quick look at Positions and Salary data for the City by department. One important note about the Positions and Salary dataset is the ‘position control’ variable that designates whether a position is hourly or salaried. For our purposes, hourly positions need to be filtered out because it affects how the position counts and appropriations are counted. Salaried positions are counted individually, and appropriations specify that annual salary for each position. Hourly positions are counted in hours per position not number of positions, and appropriations specify how much money is available to payout at the hourly rate for a position. CPD hourly positions (mostly trainees) account for roughly $10 million.
+Next, let’s take a quick look at Positions and Salary data for the City by department. One important note about the Positions and Salary dataset is the ‘position control’ variable that designates whether a position is hourly or salaried. For our purposes, hourly positions need to be filtered out because it affects how the position counts and appropriations are enumerated in the data. Salaried positions are counted individually, and appropriations specify that annual salary for each position. Hourly positions, on the other hand, are counted in hours per position not number of positions, and appropriations specify how much money is available to payout at the hourly rate for a position. CPD hourly positions (mostly trainees) account for roughly $10 million.
 
 ```{r ts by dept table}
 ts_top_ten_pos <- ts_FY21 %>% 
@@ -258,7 +252,7 @@ ts_FY21 %>%
         table.placement = "H")
 ```
 
-The CPD employs 42% of the City’s total workforce and salary appropriations. For a visual comparison of positions by department, let’s use a horizontal bar chart.
+The CPD employs 42% of the City’s total workforce and appropriations allotted to payroll (position counts and payroll are for salary and hourly employees). For a visual comparison of positions and compensation by department, let’s use a horizontal bar chart.
 
 ```{r positions by dept bar chart}
 ts_FY21 %>% 
@@ -272,6 +266,27 @@ ts_FY21 %>%
     ) +
   labs(title = "Number of Salaried Positions by Department") +
   scale_fill_continuous_tableau() +
+  theme_fivethirtyeight() +
+  theme(legend.position = "none",
+        panel.grid.major.y = element_blank(),
+        axis.text.y = element_text(size = 8)) +
+  coord_flip()
+```
+
+```{r salary appropriations by dept bar chart}
+ts_FY21 %>% 
+  group_by(department_description) %>% 
+  summarize(payroll_app = sum(total_budgeted_amount)) %>% 
+  ggplot() +
+  geom_col(aes(
+    fct_reorder(department_description, payroll_app), 
+    payroll_app / 1000000, 
+    fill = payroll_app)
+    ) +
+  labs(title = "Payroll Appropriations by Department",
+       subtitle = "Millions of Dollars") +
+  scale_fill_continuous_tableau() +
+  scale_y_continuous(labels = dollar_format()) +
   theme_fivethirtyeight() +
   theme(legend.position = "none",
         panel.grid.major.y = element_blank(),
@@ -400,7 +415,7 @@ ts_FY21 %>%
 
 # Total Policing Costs
 
-The price of police is more than the CPD budget line in the City government. Most notably, the Policemen’s Annuity and Benefit Fund (pension) is an actuarial fund completely separate from the Corporate Fund that falls under the authority of the City Department on Finance. State law mandates the level of yearly City contributions to the pension fund, which are set to increase until the fund reaches actuarial solvency. Other meaningful costs is the Civilian Office of Police Accountability, the Police Board, and various Consent Decree ^[http://chicagopoliceconsentdecree.org/] appropriations scattered across different departments. Below is a table of all the appropriations either contained within the CPD budget specifically or ancillary to it. This list is almost certainly not exhaustive, but based on what I can surmise for myself, the grand total for policing in Chicago for Fiscal Year 2021 is \$2.53 billion.
+The price of police is more than the CPD budget line in the City government. Most notably, the Policemen’s Annuity and Benefit Fund (pension) is an actuarial fund completely separate from the Corporate Fund that falls under the authority of the City Department on Finance. State law mandates the level of yearly City contributions to the pension fund, which are set to increase until the fund reaches actuarial solvency. Other meaningful costs is the Civilian Office of Police Accountability, the Police Board, and various Consent Decree ^[http://chicagopoliceconsentdecree.org/] appropriations scattered across different departments. Below is a table of all the appropriations either contained within the CPD budget specifically or ancillary to it. This list is almost certainly not exhaustive, but based on what I can surmise, the grand total for policing in Chicago for Fiscal Year 2021 is \$2.53 billion.
 
 ```{r CPD plus ancillary costs}
 # just like the titles list, this is obviously unwieldy and un-interpret-able
@@ -410,6 +425,8 @@ FY21 %>%
          department_number == "57" | # police board
          department_number == "60" | # copa
          appropriation_account_description == "CONSENT DECREE") %>% # misc consent decree
+  # replace to account for total pension cost
+  mutate(appropriation_account_description = if_else(appropriation_account_description == "LOSS IN COLLECTION OF TAXES","EMPLOYEE ANNUITY AND BENEFIT", appropriation_account_description)) %>% 
   group_by(appropriation_account_description) %>% 
   summarise(total_app = sum(ordinance_amount)) %>%
   arrange(desc(total_app)) %>% 
@@ -598,6 +615,6 @@ FY21 %>%
 
 # Conclusion
 
-The total Chicago Police Department Budget Appropriation (including appropriations outside the Corporate Fund) is \$1.6 billion dollars for Fiscal Year 2021, or 12.56% of the full City budget. It's proportion of the Corporate Fund is \$1.5 billion or 38.56%. Most City employees work for the CPD (~14 thousand) and the overwhelming majority of salary expenses flow towards that department. However, the budget line for CPD does not capture all the direct costs of policing for the City. Pension contributions (\$818 million), the Civilian Office of Police Accountability, the Police Board, and various Consent Decree expenses bring the total up to \$2.5 billion.
+The total Chicago Police Department Budget Appropriation (including appropriations outside the Corporate Fund) is \$1.6 billion dollars for Fiscal Year 2021, or 12.56% of the full City budget. It's proportion of the Corporate Fund is \$1.5 billion or 38.56%. Most City employees work for the CPD (~14 thousand) and the 42% of payroll expenses flow towards that department. However, the budget line for CPD does not capture all the direct costs of policing for the City. Pension contributions (\$818 million), the Civilian Office of Police Accountability, the Police Board, and various Consent Decree expenses bring the total up to \$2.5 billion.
 
-Opportunities for future research include a closer look at personnel costs and how compensation is structured through the CPD hierarchy. The City also maintains datasets on crime and COPA cases, which could prove insightful with regard to effectiveness and performance measures. These data along with past City budgets can shed light on what has come before, where we are now, and what the future may hold. There is also a vast literature that can enhance my qualitative analysis that I am eager to reengage.
+Opportunities for future research include a closer look at personnel costs and how compensation is structured through the CPD hierarchy. The City also maintains datasets on crime and COPA cases, which could prove insightful with regard to effectiveness and performance measures. These data along with past City budgets can shed light on what has come before, where we are now, and what the future may hold. There is also a vast literature that can enhance my qualitative analysis that I plan to return to soon.

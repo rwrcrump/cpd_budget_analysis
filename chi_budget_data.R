@@ -85,7 +85,7 @@ API_list_salaries <- c("g398-fhbm", # 2011
                        "7zkb-yr4j", # 2019
                        "txys-725h", # 2020
                        "gcwx-xm5a", # 2021
-                       "kwap-s85k") #2022 recommended budget: https://data.cityofchicago.org/Administration-Finance/Budget-2022-Budget-Recommendations-Positions-and-S/kwap-s85k
+                       "kwap-s85k") # 2022 recommended budget: https://data.cityofchicago.org/Administration-Finance/Budget-2022-Budget-Recommendations-Positions-and-S/kwap-s85k
 
 year = 2011
 
