@@ -23,7 +23,7 @@ API_list_budget <- c("drv3-jzqp", # 2011
                      "h9rt-tsn7", # 2019
                      "fyin-2vyd", # 2020
                      "6tbx-h7y2", # 2021
-                     "ncj3-k47t") # 2022, recommended budget: https://data.cityofchicago.org/Administration-Finance/Budget-2022-Budget-Recommendations-Appropriations/ncj3-k47t
+                     "2cr6-8u6w") # 2022
 
 # define seed year
 year = 2011
@@ -85,7 +85,7 @@ API_list_salaries <- c("g398-fhbm", # 2011
                        "7zkb-yr4j", # 2019
                        "txys-725h", # 2020
                        "gcwx-xm5a", # 2021
-                       "kwap-s85k") # 2022 recommended budget: https://data.cityofchicago.org/Administration-Finance/Budget-2022-Budget-Recommendations-Positions-and-S/kwap-s85k
+                       "v2mx-icwv") # 2022
 
 year = 2011
 
